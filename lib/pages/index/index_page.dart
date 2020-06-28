@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-
+import './index_page_navbar.dart';
 
 import '../Classify_page/Classify_page.dart';
 import '../Home_page/Home_page.dart';
+import '../My_page/My_page.dart';
+import '../Shop_page/Shop_page.dart';
+import '../Discover_page/Discover_page.dart';
 
 final List pageList = [
-  ClassifyPage(),
   HomePage(),
+  ClassifyPage(),
+  DiscoverPage(),
+  ShopPage(),
+  MyPage()
 ];
-
-
 
 class IndexPage extends StatefulWidget {
   @override
@@ -17,68 +21,26 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
-  Color _bottombarcolor = Color(0xFF666666);
-  Color _selectcolor = Color(0xFFF63515);
-  int currentIndex = 1;
-  @override
-  void didChangeDependencies() {
-    print('-------------didChangeDependencies------------');
-    print(currentIndex);
-    // TODO: implement didChangeDependencies
-    super.didChangeDependencies();
-    
+  int currentIndex = 0;
+  void changeIndex(int index) {
+    setState(() {
+      this.currentIndex = index;
+    });
   }
+  
   @override
   Widget build(BuildContext context) {
-    print('---------build--------------');
-    print(context);
-
     return new MaterialApp(
-      title: 'Welcome to Flutter',
+      title: 'Flutter',
       home: new Scaffold(
           appBar: new AppBar(
-            title: new Text('Welcome to Flutster'),
+            title: new Text('Flutter'),
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: this.currentIndex,
-            onTap: (int index) {
-              setState(() {
-                this.currentIndex = index;
-              });
-            },
-            selectedItemColor: this._selectcolor,
-            unselectedItemColor: this._bottombarcolor,
-            showSelectedLabels: true,
-            type: BottomNavigationBarType.fixed,
-            items: [
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home,
-                  ),
-                  title: Text('首页', style: TextStyle(fontSize: 10.0))),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.widgets,
-                  ),
-                  title: Text('分类', style: TextStyle(fontSize: 10.0))),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.navigation,
-                  ),
-                  title: Text('发现', style: TextStyle(fontSize: 10.0))),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.add_shopping_cart,
-                  ),
-                  title: Text('购物车', style: TextStyle(fontSize: 10.0))),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.person,
-                  ),
-                  title: Text('我的', style: TextStyle(fontSize: 10.0))),
-            ],
-          ),
+          bottomNavigationBar: NavBottomBar.returnBarConfig(
+              currentIndex: this.currentIndex, tabFun: this.changeIndex),
           body: pageList[currentIndex]),
+      debugShowCheckedModeBanner: false,
     );
   }
+  // ---
 }

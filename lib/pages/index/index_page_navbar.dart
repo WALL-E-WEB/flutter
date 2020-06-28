@@ -1,34 +1,19 @@
 import 'package:flutter/material.dart';
 
-class BottomBar extends StatefulWidget {
-  // BottomBar({Key key}) : super(key: key);
-   Function fn ;
-   BottomBar({this.fn});
-  @override
-  BottomBarState createState() => BottomBarState(fn:this.fn);
-}
+// class NavBar extends BottomAppBar{
+//   NavBar():super();
+// }
 
-class BottomBarState extends State<BottomBar> {
+class NavBottomBar {
+  static returnBarConfig({void Function(int index) tabFun, int currentIndex}) {
   Color _bottombarcolor = Color(0xFF666666);
   Color _selectcolor = Color(0xFFF63515);
-  int currentIndex = 0;
-  var fn;
-  BottomBarState({Function fn});
-  @override
-  Widget build(BuildContext context) {
-    int cua =2;
     return BottomNavigationBar(
-      currentIndex: this.currentIndex,
-      onTap: (int index) {
-        setState(() {
-          this.currentIndex = index;
-          
-        });
-       
-      },
-      selectedItemColor: this._selectcolor,
-      unselectedItemColor: this._bottombarcolor,
-      showSelectedLabels :true,
+      currentIndex: currentIndex,
+      onTap: tabFun,
+      selectedItemColor:_selectcolor,
+      unselectedItemColor: _bottombarcolor,
+      showSelectedLabels: true,
       type: BottomNavigationBarType.fixed,
       items: [
         BottomNavigationBarItem(
@@ -60,5 +45,3 @@ class BottomBarState extends State<BottomBar> {
     );
   }
 }
-
-mixin StateBottomBar {}
