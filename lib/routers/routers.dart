@@ -8,6 +8,7 @@ final routes = {
   '/classify': () => ClassifyPage(),
 };
 
+// ignore: top_level_function_literal_block
 var onGenerateRoute = ( settings) {
   // If you push the PassArguments route
   final String name = settings.name;
