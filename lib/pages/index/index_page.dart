@@ -7,6 +7,10 @@ import '../My_page/My_page.dart';
 import '../Shop_page/Shop_page.dart';
 import '../Discover_page/Discover_page.dart';
 
+
+
+
+
 final List pageList = [
   HomePage(),
   ClassifyPage(),
@@ -14,6 +18,7 @@ final List pageList = [
   ShopPage(),
   MyPage()
 ];
+
 
 class IndexPage extends StatefulWidget {
   @override
@@ -30,12 +35,14 @@ class _IndexPageState extends State<IndexPage> {
   
   @override
   Widget build(BuildContext context) {
+    
     return new MaterialApp(
       title: 'Flutter',
       home: new Scaffold(
-          appBar: new AppBar(
-            title: new Text('Flutter'),
-          ),
+          // appBar: new AppBar(
+          //   title: new Text('Flutter'),
+          // ),
+          
           bottomNavigationBar: NavBottomBar.returnBarConfig(
               currentIndex: this.currentIndex, tabFun: this.changeIndex),
           body: pageList[currentIndex]),

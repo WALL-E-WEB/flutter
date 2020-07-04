@@ -1,8 +1,6 @@
 import  'package:flutter/material.dart';
 
 class ClassifyPage extends StatefulWidget {
-
-
   @override
   _ClassifyPageState createState() => _ClassifyPageState();
 }
