@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-
+import './Home_page_Tab.dart';
 class HomeBannerAndSearch extends StatefulWidget {
   Widget search;
   HomeBannerAndSearch({this.search});
@@ -47,9 +47,11 @@ class _HomeBannerAndSearchState extends State<HomeBannerAndSearch> {
             ),
           ),
         ),
-        search,
+        // search,
+        // HomeTab(),
+        // Text('data'),
         Container(
-           margin: EdgeInsets.only(top:54),
+           margin: EdgeInsets.only(top:10),
            padding:EdgeInsets.symmetric(horizontal:10.0),
            height: 135.0,
           child: PhysicalModel(

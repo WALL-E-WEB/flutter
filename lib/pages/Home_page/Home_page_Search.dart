@@ -9,8 +9,8 @@ class _HomeSearchState extends State<HomeSearch> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 10.0, 0, 0),
-      height: 34.0,
+      margin: EdgeInsets.fromLTRB(0, 70, 0, 0),
+      height: 30.0,
       padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
       child: Theme(
           data: ThemeData(
